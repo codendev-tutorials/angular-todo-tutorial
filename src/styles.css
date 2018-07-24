@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  background-color: #EFEFEF
+}
+
+button.button {
+  display: inline-block;
+  padding: 7px 15px;
+  border: 1px solid #DEDEDE;
+  border-radius: 4px;
+  outline: none;
+  transition: all 100ms ease-in-out;
+  cursor: pointer;
+  color: #FFF;
+  text-transform: uppercase
+}
+
+div.clearfix {
+  clear: both
+}

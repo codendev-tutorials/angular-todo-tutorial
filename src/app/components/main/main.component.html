@@ -1,0 +1,27 @@
+<div>
+  <div class="error" *ngIf='error.message'>{{error.message}}</div>
+  <form [formGroup]='TodoForm' (ngSubmit)='AddTodo(TodoForm)'>
+    <input type='text' placeholder="Title" formControlName='title' />
+    <input type='text' placeholder="Description" formControlName='description' />
+    <input type="date" formControlName='dueData'>
+    <button type='submit' class='button'>Add</button>
+  </form>
+
+  <div>
+    <ul>
+      <li *ngFor='let todoItem of todo.TodoList; let i = index'>
+        <div class='info'>
+          <h5>{{todoItem.title}}</h5>
+          <p>{{todoItem.description}}</p>
+        </div>
+        <div class='actions'>
+          <p>Date Added: <strong>{{todoItem.dateAdded | date: 'shortDate'}}</strong> - Due Date: <strong>{{todoItem.dueData | date: 'shortDate'}}</strong></p>
+          <button class='button'>Edit</button>
+          <button class='button'>Delete</button>
+          <button class='button' (click)='todo.VIPTodoItem(i)'>VIP</button>
+          <button class='button' (CompleteTodo)='todo.CompleteTodo(i)'>Complete</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
