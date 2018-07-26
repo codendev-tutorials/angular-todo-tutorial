@@ -52,8 +52,8 @@ export class TodoService {
 
   public GetTodaysTodos(): TodoItem[] {
     let TodaysDate = new Date()
-    return this.TodoList.map(todo => {
-      if (todo.dueData.setHours(0, 0, 0, 0,) === TodaysDate.setHours(0, 0, 0, 0))
+    return this.TodoList.filter(todo => {
+      if (new Date(todo.dueData).setHours(0, 0, 0, 0) === TodaysDate.setHours(0, 0, 0, 0))
         return todo;
     });
   }

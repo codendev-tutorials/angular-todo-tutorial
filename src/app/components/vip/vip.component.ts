@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoService } from '../../services/todo.service';
 
 @Component({
   selector: 'app-vip',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VipComponent implements OnInit {
 
-  constructor() { }
+  constructor(public todo: TodoService) { }
 
   ngOnInit() {
   }

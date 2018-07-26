@@ -1,3 +1,23 @@
-<p>
-  today works!
-</p>
+<div class="error" *ngIf='!todo.GetTodaysTodos().length'>No Todos for today</div>
+  <div>
+    <ul>
+      <li 
+        *ngFor='let todoItem of todo.GetTodaysTodos(); let i = index'
+        [class.standard]="!todoItem.isCompleted && !todoItem.isVIP"
+        [class.complete]="todoItem.isCompleted"
+        [class.vip]="todoItem.isVIP"
+      >
+        <div class='info'>
+          <h5>{{todoItem.title}}</h5>
+          <p>{{todoItem.description}}</p>
+        </div>
+        <div class='actions'>
+          <p>Date Added: <strong>{{todoItem.dateAdded | date: 'shortDate'}}</strong> - Due Date: <strong>{{todoItem.dueData | date: 'shortDate'}}</strong></p>
+          <button class='button'>Edit</button>
+          <button class='button' (click)='todo.RemoveTodo(i)'>Delete</button>
+          <button class='button' (click)='todo.VIPTodoItem(i)'>VIP</button>
+          <button class='button' (click)='todo.CompleteTodo(i)'>Complete</button>
+        </div>
+      </li>
+    </ul>
+  </div>
